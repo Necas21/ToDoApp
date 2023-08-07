@@ -1,0 +1,16 @@
+<div class="panel panel-primary">
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title">{{ task.title }}
+            <div class="btn-group pull-right" role="group" aria-label="...">
+                {% if task.status == "incomplete" %}
+                    <button type="button" class="btn btn-default" onclick="window.location.href='{{ url_for('main.complete_task', task_id=task.id) }}'">Complete</button>
+                {% endif %}
+                <button type="button" class="btn btn-default" onclick="window.location.href='{{ url_for('main.delete_task', task_id=task.id) }}'">Delete</button>
+            </div>
+        </h3>
+    </div>
+    <div class="panel-body">
+        {{ task.description }}
+    </div>
+    <div class="panel-footer">Due Date: {{ moment(task.due_date).format("LLL") }}</div>
+</div>

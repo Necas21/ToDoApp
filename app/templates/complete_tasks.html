@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h2>Here are your complete tasks</h2>
+    {% for task in tasks %}
+        {% if task.status == "complete" %}
+            {% include '_task.html' %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}
